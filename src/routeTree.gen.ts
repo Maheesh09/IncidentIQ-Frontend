@@ -18,7 +18,7 @@ import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SystemStatesRouteImport } from './routes/system-states'
 import { Route as IncidentsIndexRouteImport } from './routes/incidents/index'
-import { Route as IncidentsInc8492RouteImport } from './routes/incidents/inc-8492'
+import { Route as IncidentsIncidentIdRouteImport } from './routes/incidents/$incidentId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -65,9 +65,9 @@ const IncidentsIndexRoute = IncidentsIndexRouteImport.update({
   path: '/incidents/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IncidentsInc8492Route = IncidentsInc8492RouteImport.update({
-  id: '/incidents/inc-8492',
-  path: '/incidents/inc-8492',
+const IncidentsIncidentIdRoute = IncidentsIncidentIdRouteImport.update({
+  id: '/incidents/$incidentId',
+  path: '/incidents/$incidentId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -80,7 +80,7 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRoute
   '/signup': typeof SignupRoute
   '/system-states': typeof SystemStatesRoute
-  '/incidents/inc-8492': typeof IncidentsInc8492Route
+  '/incidents/$incidentId': typeof IncidentsIncidentIdRoute
   '/incidents/': typeof IncidentsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -92,7 +92,7 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/signup': typeof SignupRoute
   '/system-states': typeof SystemStatesRoute
-  '/incidents/inc-8492': typeof IncidentsInc8492Route
+  '/incidents/$incidentId': typeof IncidentsIncidentIdRoute
   '/incidents': typeof IncidentsIndexRoute
 }
 export interface FileRoutesById {
@@ -105,7 +105,7 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRoute
   '/signup': typeof SignupRoute
   '/system-states': typeof SystemStatesRoute
-  '/incidents/inc-8492': typeof IncidentsInc8492Route
+  '/incidents/$incidentId': typeof IncidentsIncidentIdRoute
   '/incidents/': typeof IncidentsIndexRoute
 }
 export interface FileRouteTypes {
@@ -119,7 +119,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/signup'
     | '/system-states'
-    | '/incidents/inc-8492'
+    | '/incidents/$incidentId'
     | '/incidents/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -131,7 +131,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/signup'
     | '/system-states'
-    | '/incidents/inc-8492'
+    | '/incidents/$incidentId'
     | '/incidents'
   id:
     | '__root__'
@@ -143,7 +143,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/signup'
     | '/system-states'
-    | '/incidents/inc-8492'
+    | '/incidents/$incidentId'
     | '/incidents/'
   fileRoutesById: FileRoutesById
 }
@@ -156,7 +156,7 @@ export interface RootRouteChildren {
   OnboardingRoute: typeof OnboardingRoute
   SignupRoute: typeof SignupRoute
   SystemStatesRoute: typeof SystemStatesRoute
-  IncidentsInc8492Route: typeof IncidentsInc8492Route
+  IncidentsIncidentIdRoute: typeof IncidentsIncidentIdRoute
   IncidentsIndexRoute: typeof IncidentsIndexRoute
 }
 
@@ -225,11 +225,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IncidentsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/incidents/inc-8492': {
-      id: '/incidents/inc-8492'
-      path: '/incidents/inc-8492'
-      fullPath: '/incidents/inc-8492'
-      preLoaderRoute: typeof IncidentsInc8492RouteImport
+    '/incidents/$incidentId': {
+      id: '/incidents/$incidentId'
+      path: '/incidents/$incidentId'
+      fullPath: '/incidents/$incidentId'
+      preLoaderRoute: typeof IncidentsIncidentIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -244,7 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   OnboardingRoute: OnboardingRoute,
   SignupRoute: SignupRoute,
   SystemStatesRoute: SystemStatesRoute,
-  IncidentsInc8492Route: IncidentsInc8492Route,
+  IncidentsIncidentIdRoute: IncidentsIncidentIdRoute,
   IncidentsIndexRoute: IncidentsIndexRoute,
 }
 export const routeTree = rootRouteImport

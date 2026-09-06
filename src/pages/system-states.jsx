@@ -1,8 +1,8 @@
-import { ScreenNav } from "@/components/ScreenNav";
+import { Link } from "@tanstack/react-router";
 
 export default function SystemStatesPage() {
   return (
-    <ScreenNav>
+    <div className="min-h-screen bg-background text-on-background">
       <aside className={"fixed left-0 top-0 h-screen w-60 bg-surface-dim z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"}>
         <div className={"flex flex-col"}>
           <div className={"h-16 px-space-lg flex items-center gap-space-sm"}>
@@ -13,38 +13,38 @@ export default function SystemStatesPage() {
           </div>
           <div className={"px-space-md py-space-sm"}>
             <nav className={"flex flex-col gap-space-xxs"} data-active-classes={"bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"}>
-              <a aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} data-path={"incidents"} href={"#"}>
+              <Link aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} to={"/incidents"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"emergency_home"}
                 </span>
                 <span>
                   {"Incidents"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"integrations"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/integrations"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"hub"}
                 </span>
                 <span>
                   {"Integrations"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"api-keys"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/api-keys"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"key"}
                 </span>
                 <span>
                   {"API Keys"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"settings"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/system-states"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"settings"}
                 </span>
                 <span>
                   {"Settings"}
                 </span>
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function SystemStatesPage() {
               <span className={"font-body-sm text-body-sm font-semibold text-on-surface truncate"}>
                 {"Elena Rostova"}
               </span>
-              <span className={"font-body-sm text-[11px] leading-[14px] text-on-surface-variant truncate"}>
+              <span className={"font-body-sm text-[11px] leading-3.5 text-on-surface-variant truncate"}>
                 {"Global Payments Infra"}
               </span>
             </div>
@@ -141,7 +141,7 @@ export default function SystemStatesPage() {
                 </p>
               </section>
               <div className={"grid grid-cols-1 md:grid-cols-2 gap-space-lg w-full"}>
-                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-[380px] flex flex-col items-center justify-center text-center shadow-lg overflow-hidden group"}>
+                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-95 flex flex-col items-center justify-center text-center shadow-lg overflow-hidden group"}>
                   <div className={"absolute -top-16 -left-16 w-48 h-48 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"}></div>
                   <div className={"absolute top-4 right-4 flex items-center gap-1.5 font-mono-badge text-mono-badge text-outline"}>
                     <span className={"w-1.5 h-1.5 rounded-full bg-tertiary"}></span>
@@ -179,7 +179,7 @@ export default function SystemStatesPage() {
                     </span>
                   </div>
                 </div>
-                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-[380px] flex flex-col items-center justify-center text-center shadow-lg overflow-hidden group"}>
+                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-95 flex flex-col items-center justify-center text-center shadow-lg overflow-hidden group"}>
                   <div className={"absolute -top-16 -right-16 w-48 h-48 rounded-full bg-error-container/20 blur-3xl pointer-events-none"}></div>
                   <div className={"absolute top-4 right-4 flex items-center gap-1.5 font-mono-badge text-mono-badge text-error"}>
                     <span className={"w-1.5 h-1.5 rounded-full bg-error animate-ping"}></span>
@@ -230,7 +230,7 @@ export default function SystemStatesPage() {
                     </span>
                   </div>
                 </div>
-                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-[380px] flex flex-col items-center justify-center text-center shadow-lg overflow-hidden group"}>
+                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-95 flex flex-col items-center justify-center text-center shadow-lg overflow-hidden group"}>
                   <div className={"absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-tertiary/10 blur-3xl pointer-events-none"}></div>
                   <div className={"absolute top-4 right-4 flex items-center gap-1.5 font-mono-badge text-mono-badge text-outline"}>
                     <span className={"w-1.5 h-1.5 rounded-full bg-outline"}></span>
@@ -268,7 +268,7 @@ export default function SystemStatesPage() {
                     </span>
                   </div>
                 </div>
-                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-[380px] flex flex-col items-center justify-center text-center shadow-lg overflow-hidden"}>
+                <div className={"relative bg-surface-container-low rounded-xl p-card-padding min-h-95 flex flex-col items-center justify-center text-center shadow-lg overflow-hidden"}>
                   <div className={"absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-primary-container/20 blur-3xl pointer-events-none"}></div>
                   <div className={"absolute top-4 right-4 flex items-center gap-1.5 font-mono-badge text-mono-badge text-primary"}>
                     <span className={"w-1.5 h-1.5 rounded-full bg-primary animate-ping"}></span>
@@ -295,7 +295,7 @@ export default function SystemStatesPage() {
                       {"Autonomic agents are correlating logs, traces, and git deploy deltas across your cluster..."}
                     </p>
                     <div className={"w-full h-1.5 bg-surface-container rounded-full overflow-hidden mb-space-lg relative"}>
-                      <div className={"absolute top-0 bottom-0 left-0 bg-gradient-to-r from-transparent via-primary to-transparent w-1/2 rounded-full animate-[shimmer_1.8s_infinite] [animation-timing-function:ease-in-out]"}></div>
+                      <div className={"absolute top-0 bottom-0 left-0 bg-linear-to-r from-transparent via-primary to-transparent w-1/2 rounded-full animate-[shimmer_1.8s_infinite] [animation-timing-function:ease-in-out]"}></div>
                     </div>
                     <div className={"w-full bg-surface-container-lowest rounded-lg p-space-xs flex items-center justify-between"}>
                       <div className={"flex flex-col items-center px-space-xs flex-1"}>
@@ -388,6 +388,6 @@ export default function SystemStatesPage() {
           </div>
         </main>
       </div>
-    </ScreenNav>
+    </div>
   );
 }

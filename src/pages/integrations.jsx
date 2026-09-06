@@ -1,8 +1,8 @@
-import { ScreenNav } from "@/components/ScreenNav";
+import { Link } from "@tanstack/react-router";
 
 export default function IntegrationsPage() {
   return (
-    <ScreenNav>
+    <div className="min-h-screen bg-background text-on-background">
       <aside className={"fixed left-0 top-0 h-screen w-60 bg-surface-dim z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"}>
         <div className={"flex flex-col"}>
           <div className={"h-16 px-space-lg flex items-center gap-space-sm"}>
@@ -13,38 +13,38 @@ export default function IntegrationsPage() {
           </div>
           <div className={"px-space-md py-space-sm"}>
             <nav className={"flex flex-col gap-space-xxs"} data-active-classes={"bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"}>
-              <a aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} data-path={"incidents"} href={"#"}>
+              <Link aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} to={"/incidents"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"emergency_home"}
                 </span>
                 <span>
                   {"Incidents"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"integrations"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/integrations"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"hub"}
                 </span>
                 <span>
                   {"Integrations"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"api-keys"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/api-keys"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"key"}
                 </span>
                 <span>
                   {"API Keys"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"settings"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/system-states"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"settings"}
                 </span>
                 <span>
                   {"Settings"}
                 </span>
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function IntegrationsPage() {
               <span className={"font-body-sm text-body-sm font-semibold text-on-surface truncate"}>
                 {"Elena Rostova"}
               </span>
-              <span className={"font-body-sm text-[11px] leading-[14px] text-on-surface-variant truncate"}>
+              <span className={"font-body-sm text-[11px] leading-3.5 text-on-surface-variant truncate"}>
                 {"Global Payments Infra"}
               </span>
             </div>
@@ -118,7 +118,7 @@ export default function IntegrationsPage() {
         <main className={"relative pt-16 bg-surface-container-lowest min-h-screen px-space-xl py-space-xl"}>
           <div className={"flex flex-col w-full"}>
             <div className={"relative w-full"}>
-              <div className={"absolute -top-16 left-1/2 -translate-x-1/2 w-[800px] h-[360px] pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_0%,rgba(110,74,255,0.22),transparent_70%)]"}></div>
+              <div className={"absolute -top-16 left-1/2 -translate-x-1/2 w-200 h-90 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_50%_0%,rgba(110,74,255,0.22),transparent_70%)]"}></div>
               <div className={"relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-space-lg pb-space-2xl border-b border-[#232329]"}>
                 <div className={"flex flex-col gap-space-xs max-w-2xl"}>
                   <div className={"flex items-center gap-space-sm flex-wrap"}>
@@ -209,7 +209,7 @@ export default function IntegrationsPage() {
                     <div className={"flex items-start justify-between gap-space-sm mb-space-md"}>
                       <div className={"flex items-center gap-space-sm"}>
                         <div className={"w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm"}>
-                          <svg className={"w-6 h-6"} fill={"none"} stroke={"currentColor"} strokeWidth={"1.8"} viewbox={"0 0 24 24"}>
+                          <svg className={"w-6 h-6"} fill={"none"} stroke={"currentColor"} strokeWidth={"1.8"} viewBox={"0 0 24 24"}>
                             <path d={"M19 12h-7v2h5a4 4 0 0 1-7.5 1.5l-1.8 1.2A6 6 0 1 0 19 12z"} fill={"#aec6ff"} stroke={"none"}></path>
                             <circle cx={"12"} cy={"12"} r={"9"} stroke={"currentColor"} strokeDasharray={"2 2"} strokeWidth={"1.5"}></circle>
                           </svg>
@@ -237,16 +237,16 @@ export default function IntegrationsPage() {
                         <span className={"w-1.5 h-1.5 rounded-full bg-tertiary"}></span>
                         {"Connected"}
                       </div>
-                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-[180px]"}>
+                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-45"}>
                         {"last sync: 14s ago • 1.2k e/s"}
                       </span>
                     </div>
-                    <a className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} href={"#"}>
+                    <Link className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} to={"/"}>
                       {"Manage"}
                       <span className={"material-symbols-outlined text-[16px]"}>
                         {"chevron_right"}
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={"group relative flex flex-col justify-between p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high transition-all duration-200"}>
@@ -254,7 +254,7 @@ export default function IntegrationsPage() {
                     <div className={"flex items-start justify-between gap-space-sm mb-space-md"}>
                       <div className={"flex items-center gap-space-sm"}>
                         <div className={"w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-on-surface shadow-sm"}>
-                          <svg className={"w-6 h-6 fill-current"} viewbox={"0 0 24 24"}>
+                          <svg className={"w-6 h-6 fill-current"} viewBox={"0 0 24 24"}>
                             <path clipRule={"evenodd"} d={"M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"} fillRule={"evenodd"}></path>
                           </svg>
                         </div>
@@ -281,16 +281,16 @@ export default function IntegrationsPage() {
                         <span className={"w-1.5 h-1.5 rounded-full bg-tertiary"}></span>
                         {"Connected"}
                       </div>
-                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-[180px]"}>
+                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-45"}>
                         {"commit: sha:8f12a4b • 3m ago"}
                       </span>
                     </div>
-                    <a className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} href={"#"}>
+                    <Link className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} to={"/"}>
                       {"Manage"}
                       <span className={"material-symbols-outlined text-[16px]"}>
                         {"chevron_right"}
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={"group relative flex flex-col justify-between p-space-lg rounded-xl bg-surface-container hover:bg-surface-container-high transition-all duration-200"}>
@@ -298,7 +298,7 @@ export default function IntegrationsPage() {
                     <div className={"flex items-start justify-between gap-space-sm mb-space-md"}>
                       <div className={"flex items-center gap-space-sm"}>
                         <div className={"w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary-fixed shadow-sm"}>
-                          <svg className={"w-6 h-6"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewbox={"0 0 24 24"}>
+                          <svg className={"w-6 h-6"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewBox={"0 0 24 24"}>
                             <line x1={"4"} x2={"20"} y1={"9"} y2={"9"}></line>
                             <line x1={"4"} x2={"20"} y1={"15"} y2={"15"}></line>
                             <line x1={"10"} x2={"8"} y1={"3"} y2={"21"}></line>
@@ -328,16 +328,16 @@ export default function IntegrationsPage() {
                         <span className={"w-1.5 h-1.5 rounded-full bg-tertiary"}></span>
                         {"Connected"}
                       </div>
-                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-[180px]"}>
+                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-45"}>
                         {"routed: #incident-war-room"}
                       </span>
                     </div>
-                    <a className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} href={"#"}>
+                    <Link className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} to={"/"}>
                       {"Manage"}
                       <span className={"material-symbols-outlined text-[16px]"}>
                         {"chevron_right"}
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={"group relative flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-all duration-200 opacity-70 hover:opacity-100"}>
@@ -345,7 +345,7 @@ export default function IntegrationsPage() {
                     <div className={"flex items-start justify-between gap-space-sm mb-space-md"}>
                       <div className={"flex items-center gap-space-sm"}>
                         <div className={"w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-outline"}>
-                          <svg className={"w-5 h-5"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewbox={"0 0 24 24"}>
+                          <svg className={"w-5 h-5"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewBox={"0 0 24 24"}>
                             <path d={"M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"}></path>
                             <path d={"M13.73 21a2 2 0 0 1-3.46 0"}></path>
                           </svg>
@@ -382,7 +382,7 @@ export default function IntegrationsPage() {
                     <div className={"flex items-start justify-between gap-space-sm mb-space-md"}>
                       <div className={"flex items-center gap-space-sm"}>
                         <div className={"w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shadow-sm"}>
-                          <svg className={"w-6 h-6"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewbox={"0 0 24 24"}>
+                          <svg className={"w-6 h-6"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewBox={"0 0 24 24"}>
                             <path d={"M22 12h-4l-3 9L9 3l-3 9H2"}></path>
                           </svg>
                         </div>
@@ -409,16 +409,16 @@ export default function IntegrationsPage() {
                         <span className={"w-1.5 h-1.5 rounded-full bg-tertiary"}></span>
                         {"Connected"}
                       </div>
-                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-[180px]"}>
+                      <span className={"font-mono-code text-[11px] text-outline truncate max-w-45"}>
                         {"ingest: 24 policies active"}
                       </span>
                     </div>
-                    <a className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} href={"#"}>
+                    <Link className={"inline-flex items-center gap-0.5 font-body-sm text-body-sm text-primary hover:text-on-surface transition-colors font-medium"} to={"/"}>
                       {"Manage"}
                       <span className={"material-symbols-outlined text-[16px]"}>
                         {"chevron_right"}
                       </span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={"group relative flex flex-col justify-between p-space-lg rounded-xl bg-surface-container-low/60 hover:bg-surface-container-low transition-all duration-200 opacity-70 hover:opacity-100"}>
@@ -426,7 +426,7 @@ export default function IntegrationsPage() {
                     <div className={"flex items-start justify-between gap-space-sm mb-space-md"}>
                       <div className={"flex items-center gap-space-sm"}>
                         <div className={"w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-outline"}>
-                          <svg className={"w-5 h-5"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewbox={"0 0 24 24"}>
+                          <svg className={"w-5 h-5"} fill={"none"} stroke={"currentColor"} strokeWidth={"2"} viewBox={"0 0 24 24"}>
                             <path d={"M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"}></path>
                             <polyline points={"15 3 21 3 21 9"}></polyline>
                             <line x1={"10"} x2={"21"} y1={"14"} y2={"3"}></line>
@@ -461,7 +461,7 @@ export default function IntegrationsPage() {
                 </div>
               </div>
               <div className={"mt-space-2xl p-space-xl rounded-xl bg-surface-container relative overflow-hidden shadow-2xl"}>
-                <div className={"absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary-container to-transparent"}></div>
+                <div className={"absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-primary-container to-transparent"}></div>
                 <div className={"flex flex-col sm:flex-row sm:items-center justify-between gap-space-md pb-space-lg border-b border-[#232329]"}>
                   <div className={"flex items-center gap-space-sm"}>
                     <div className={"w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary"}>
@@ -601,7 +601,7 @@ export default function IntegrationsPage() {
                       </p>
                     </div>
                   </div>
-                  <div className={"mt-space-lg p-space-md rounded-lg bg-surface-container-lowest hidden font-mono-code text-[12px] leading-[20px] text-on-surface-variant"} id={"telemetry-ping-console"}>
+                  <div className={"mt-space-lg p-space-md rounded-lg bg-surface-container-lowest hidden font-mono-code text-[12px] leading-5 text-on-surface-variant"} id={"telemetry-ping-console"}>
                     <div className={"flex items-center justify-between pb-2 mb-2 border-b border-[#232329] text-outline font-mono-badge text-[10px]"}>
                       <span>
                         {"TEST_PROBE_SESSION_ID: #pb-98442-gcp"}
@@ -632,6 +632,6 @@ export default function IntegrationsPage() {
           </div>
         </main>
       </div>
-    </ScreenNav>
+    </div>
   );
 }

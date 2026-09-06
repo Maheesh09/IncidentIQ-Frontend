@@ -1,10 +1,10 @@
-import { ScreenNav } from "@/components/ScreenNav";
+import { Link } from "@tanstack/react-router";
 
 export default function LoginPage() {
   return (
-    <ScreenNav>
+    <div className="min-h-screen bg-background text-on-background">
       <header className={"fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/80 backdrop-blur-xl border-b border-surface-container-high"}>
-        <div className={"h-16 max-w-[1200px] mx-auto px-space-md lg:px-space-xl flex items-center justify-between gap-space-md"}>
+        <div className={"h-16 max-w-max-content-width mx-auto px-space-md lg:px-space-xl flex items-center justify-between gap-space-md"}>
           <div className={"flex items-center gap-space-sm"}>
             <img alt={"IncidentIQ Logo"} className={"h-8 w-auto object-contain"} src={"/logo.svg"} />
             <span className={"font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold"}>
@@ -12,21 +12,21 @@ export default function LoginPage() {
             </span>
           </div>
           <nav className={"hidden lg:flex items-center gap-space-lg"} data-active-classes={"text-primary font-medium"}>
-            <a aria-current={"page"} className={"transition-colors text-primary font-medium"} data-path={"home"} href={"#"}>
+            <Link aria-current={"page"} className={"transition-colors text-primary font-medium"} to={"/"}>
               {"Product"}
-            </a>
-            <a className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} data-path={"architecture"} href={"#"}>
+            </Link>
+            <Link className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} to={"/"}>
               {"Architecture"}
-            </a>
-            <a className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} data-path={"integrations"} href={"#"}>
+            </Link>
+            <Link className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} to={"/integrations"}>
               {"Integrations"}
-            </a>
-            <a className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} data-path={"documentation"} href={"#"}>
+            </Link>
+            <Link className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} to={"/"}>
               {"Docs"}
-            </a>
-            <a className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} data-path={"pricing"} href={"#"}>
+            </Link>
+            <Link className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} to={"/"}>
               {"Pricing"}
-            </a>
+            </Link>
           </nav>
           <div className={"flex items-center gap-space-sm"}>
             <div className={"hidden sm:flex items-center gap-space-xxs bg-surface-container-low px-space-xs py-1 rounded-full border border-surface-container-high"}>
@@ -35,12 +35,12 @@ export default function LoginPage() {
                 {"All systems operational"}
               </span>
             </div>
-            <a className={"hidden md:inline-flex items-center justify-center px-space-sm py-2 rounded-xl border border-surface-container-high font-body-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors"} data-path={"login"} href={"#"}>
+            <Link className={"hidden md:inline-flex items-center justify-center px-space-sm py-2 rounded-xl border border-surface-container-high font-body-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors"} to={"/login"}>
               {"Sign in"}
-            </a>
-            <a className={"inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold hover:bg-inverse-primary hover:text-on-primary-container transition-colors"} data-path={"signup"} href={"#"}>
+            </Link>
+            <Link className={"inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold hover:bg-inverse-primary hover:text-on-primary-container transition-colors"} to={"/signup"}>
               {"Start free"}
-            </a>
+            </Link>
             <div className={"w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"}>
               <span className={"material-symbols-outlined text-on-primary text-[18px]"}>
                 {"person"}
@@ -62,12 +62,6 @@ export default function LoginPage() {
               <div className={"relative z-10 flex flex-wrap items-center justify-between gap-space-sm"}>
                 <div className={"flex items-center gap-space-sm"}>
                   <img alt={"IncidentIQ Logo"} className={"h-8 w-auto object-contain"} src={"/logo.svg"} />
-                </div>
-                <div className={"inline-flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-high/80 backdrop-blur-md"}>
-                  <span className={"w-1.5 h-1.5 rounded-full bg-tertiary"}></span>
-                  <span className={"font-mono-badge text-mono-badge uppercase tracking-wider text-on-surface-variant"}>
-                    {"Zero Trust SSO Enforced"}
-                  </span>
                 </div>
               </div>
               <div className={"relative z-10 my-auto py-space-xl max-w-lg space-y-space-md"}>
@@ -112,14 +106,6 @@ export default function LoginPage() {
               </div>
               <div className={"relative z-10 pt-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm font-mono-badge text-mono-badge uppercase tracking-wider text-on-surface-variant"}>
                 <div className={"flex items-center gap-space-xs"}>
-                  <span className={"material-symbols-outlined text-primary text-[18px]"}>
-                    {"verified_user"}
-                  </span>
-                  <span>
-                    {"SOC 2 Type II Certified"}
-                  </span>
-                </div>
-                <div className={"flex items-center gap-space-xs"}>
                   <span className={"material-symbols-outlined text-tertiary text-[18px]"}>
                     {"cloud_sync"}
                   </span>
@@ -131,7 +117,7 @@ export default function LoginPage() {
             </div>
             <div className={"lg:col-span-7 bg-surface flex flex-col justify-center items-center p-space-md sm:p-space-xl lg:p-space-2xl relative"}>
               <div className={"absolute top-0 right-0 w-96 h-96 bg-[radial-gradient(circle,rgba(110,74,255,0.08),transparent_70%)] pointer-events-none"}></div>
-              <div className={"w-full max-w-[420px] flex flex-col space-y-space-lg relative z-10"}>
+              <div className={"w-full max-w-105 flex flex-col space-y-space-lg relative z-10"}>
                 <div className={"space-y-space-xs"}>
                   <div className={"inline-flex items-center gap-space-xxs text-primary font-mono-badge text-mono-badge uppercase tracking-wider mb-space-xxs"}>
                     <span className={"w-1.5 h-1.5 rounded-full bg-primary animate-pulse"}></span>
@@ -146,7 +132,7 @@ export default function LoginPage() {
                 </div>
                 <div>
                   <button className={"w-full h-12 px-space-md rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-all duration-150 flex items-center justify-center gap-space-sm font-body-base text-body-base font-medium shadow-sm hover:shadow-md"} id={"btn-google-sso"} type={"button"}>
-                    <svg aria-hidden={"true"} className={"w-5 h-5"} viewbox={"0 0 24 24"}>
+                    <svg aria-hidden={"true"} className={"w-5 h-5"} viewBox={"0 0 24 24"}>
                       <path d={"M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"} fill={"#4285F4"}></path>
                       <path d={"M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.33 24 12 24z"} fill={"#34A853"}></path>
                       <path d={"M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.17 0 9.99 0 12s.45 3.83 1.25 5.42l4.03-3.15z"} fill={"#FBBC05"}></path>
@@ -180,9 +166,9 @@ export default function LoginPage() {
                       <label className={"block font-body-sm text-body-sm font-medium text-on-surface"} htmlFor={"user-password"}>
                         {"Password"}
                       </label>
-                      <a className={"font-body-sm text-body-sm text-primary hover:text-primary-fixed transition-colors underline-offset-4 hover:underline"} href={"#"}>
+                      <Link className={"font-body-sm text-body-sm text-primary hover:text-primary-fixed transition-colors underline-offset-4 hover:underline"} to={"/forgot-password"}>
                         {"Forgot password?"}
-                      </a>
+                      </Link>
                     </div>
                     <div className={"relative"}>
                       <input className={"w-full h-11 px-space-md pr-11 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-outline font-mono-code text-mono-code focus:outline-none focus:bg-surface-container-low transition-all duration-150"} id={"user-password"} name={"password"} placeholder={"••••••••••••••••"} required type={"password"} />
@@ -194,7 +180,7 @@ export default function LoginPage() {
                     </div>
                   </div>
                   <div className={"flex items-center gap-space-sm pt-space-xxs"}>
-                    <label className={"relative flex items-center cursor-pointer select-none"}>
+                    <label aria-label={"Remember this device"} className={"relative flex items-center cursor-pointer select-none"}>
                       <input checked className={"sr-only peer"} id={"remember-terminal"} name={"remember"} type={"checkbox"} />
                       <div className={"w-4 h-4 rounded bg-surface-container-high peer-checked:bg-primary-container flex items-center justify-center transition-all duration-150"}>
                         <span className={"material-symbols-outlined text-on-primary text-[14px] opacity-0 peer-checked:opacity-100 font-bold"}>
@@ -218,9 +204,9 @@ export default function LoginPage() {
                 <div className={"text-center pt-space-xs"}>
                   <p className={"font-body-sm text-body-sm text-on-surface-variant"}>
                     {"Don't have an organization yet?"}
-                    <a className={"text-primary font-medium hover:text-primary-fixed transition-colors underline-offset-4 hover:underline ml-1 inline-flex items-center gap-0.5"} data-path={"signup"} href={"#"}>
+                    <Link className={"text-primary font-medium hover:text-primary-fixed transition-colors underline-offset-4 hover:underline ml-1 inline-flex items-center gap-0.5"} to={"/signup"}>
                       {"Create an account →"}
-                    </a>
+                    </Link>
                   </p>
                 </div>
                 <div className={"pt-space-md border-t border-surface-container-high/50 flex flex-wrap items-center justify-between gap-space-xs font-mono-badge text-mono-badge uppercase tracking-wider text-outline"}>
@@ -249,7 +235,7 @@ export default function LoginPage() {
         </div>
       </main>
       <footer className={"w-full bg-surface-container-lowest border-t border-surface-container-high"}>
-        <div className={"max-w-[1200px] mx-auto px-space-md lg:px-space-xl pt-space-2xl pb-space-xl"}>
+        <div className={"max-w-max-content-width mx-auto px-space-md lg:px-space-xl pt-space-2xl pb-space-xl"}>
           <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-2xl"}>
             <div className={"lg:col-span-2 space-y-space-sm"}>
               <div className={"flex items-center gap-space-sm"}>
@@ -268,27 +254,27 @@ export default function LoginPage() {
               </h4>
               <ul className={"space-y-space-xs font-body-sm text-body-sm"}>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"root-cause-engine"} href={"#"}>
+                  <a href={"/"}>
                     {"Root Cause Engine"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"deploy-correlator"} href={"#"}>
+                  <a href={"/"}>
                     {"Deploy Correlator"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"live-playbooks"} href={"#"}>
+                  <a href={"/"}>
                     {"Live Playbooks"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"supported-clouds"} href={"#"}>
+                  <a href={"/"}>
                     {"Supported Clouds"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"security"} href={"#"}>
+                  <a href={"/"}>
                     {"Security"}
                   </a>
                 </li>
@@ -300,27 +286,27 @@ export default function LoginPage() {
               </h4>
               <ul className={"space-y-space-xs font-body-sm text-body-sm"}>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-google-cloud"} href={"#"}>
+                  <a href={"/integrations"}>
                     {"Google Cloud"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-kubernetes"} href={"#"}>
+                  <a href={"/integrations"}>
                     {"Kubernetes"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-datadog"} href={"#"}>
+                  <a href={"/integrations"}>
                     {"Datadog"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-pagerduty"} href={"#"}>
+                  <a href={"/integrations"}>
                     {"PagerDuty"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-slack"} href={"#"}>
+                  <a href={"/integrations"}>
                     {"Slack"}
                   </a>
                 </li>
@@ -332,27 +318,27 @@ export default function LoginPage() {
               </h4>
               <ul className={"space-y-space-xs font-body-sm text-body-sm"}>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"documentation"} href={"#"}>
+                  <a href={"/"}>
                     {"Documentation"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"incident-library"} href={"#"}>
+                  <a href={"/incidents"}>
                     {"Incident Library"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"status"} href={"#"}>
+                  <a href={"/system-states"}>
                     {"Status"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"soc-2-type-ii"} href={"#"}>
-                    {"SOC 2 Type II"}
+                  <a href={"/system-states"}>
+                    {"Security overview"}
                   </a>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"changelog"} href={"#"}>
+                  <a href={"/"}>
                     {"Changelog"}
                   </a>
                 </li>
@@ -372,6 +358,6 @@ export default function LoginPage() {
           </div>
         </div>
       </footer>
-    </ScreenNav>
+    </div>
   );
 }

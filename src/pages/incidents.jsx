@@ -1,8 +1,8 @@
-import { ScreenNav } from "@/components/ScreenNav";
+import { Link } from "@tanstack/react-router";
 
 export default function IncidentsPage() {
   return (
-    <ScreenNav>
+    <div className="min-h-screen bg-background text-on-background">
       <aside className={"fixed left-0 top-0 h-screen w-60 bg-surface-dim z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"}>
         <div className={"flex flex-col"}>
           <div className={"h-16 px-space-lg flex items-center gap-space-sm"}>
@@ -13,38 +13,38 @@ export default function IncidentsPage() {
           </div>
           <div className={"px-space-md py-space-sm"}>
             <nav className={"flex flex-col gap-space-xxs"} data-active-classes={"bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"}>
-              <a aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} data-path={"incidents"} href={"#"}>
+              <Link aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} to={"/incidents"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"emergency_home"}
                 </span>
                 <span>
                   {"Incidents"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"integrations"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/integrations"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"hub"}
                 </span>
                 <span>
                   {"Integrations"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"api-keys"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/api-keys"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"key"}
                 </span>
                 <span>
                   {"API Keys"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"settings"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/system-states"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"settings"}
                 </span>
                 <span>
                   {"Settings"}
                 </span>
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function IncidentsPage() {
               <span className={"font-body-sm text-body-sm font-semibold text-on-surface truncate"}>
                 {"Elena Rostova"}
               </span>
-              <span className={"font-body-sm text-[11px] leading-[14px] text-on-surface-variant truncate"}>
+              <span className={"font-body-sm text-[11px] leading-3.5 text-on-surface-variant truncate"}>
                 {"Global Payments Infra"}
               </span>
             </div>
@@ -116,9 +116,9 @@ export default function IncidentsPage() {
           </div>
         </header>
         <main className={"relative pt-16 bg-surface-container-lowest min-h-screen px-space-xl py-space-xl"}>
-          <div className={"flex flex-col w-full max-w-[1200px] mx-auto gap-space-lg"}>
+          <div className={"flex flex-col w-full max-w-max-content-width mx-auto gap-space-lg"}>
             <div className={"relative w-full"}>
-              <div className={"absolute -top-16 left-1/2 -translate-x-1/2 w-[700px] h-[180px] bg-gradient-to-b from-primary-container/15 via-primary-container/5 to-transparent blur-3xl pointer-events-none -z-10"}></div>
+              <div className={"absolute -top-16 left-1/2 -translate-x-1/2 w-175 h-45 bg-linear-to-b from-primary-container/15 via-primary-container/5 to-transparent blur-3xl pointer-events-none -z-10"}></div>
             </div>
             <section className={"flex flex-col md:flex-row md:items-center justify-between gap-space-md"}>
               <div className={"flex flex-col gap-space-xxs"}>
@@ -473,7 +473,7 @@ export default function IncidentsPage() {
                     <tr>
                       <td className={"p-0"} colSpan={"8"}>
                         <div className={"w-full h-[3px] bg-surface-container overflow-hidden"}>
-                          <div className={"h-full bg-gradient-to-r from-primary-container via-tertiary to-primary-container animate-[pulse_1.5s_ease-in-out_infinite] w-3/4"}></div>
+                          <div className={"h-full bg-linear-to-r from-primary-container via-tertiary to-primary-container animate-[pulse_1.5s_ease-in-out_infinite] w-3/4"}></div>
                         </div>
                       </td>
                     </tr>
@@ -883,7 +883,7 @@ export default function IncidentsPage() {
             </section>
             <section className={"p-space-md rounded-xl bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md shadow-sm"}>
               <div className={"flex items-center gap-space-sm min-w-0"}>
-                <div className={"w-8 h-8 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary-fixed flex-shrink-0"}>
+                        <div className={"w-8 h-8 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary-fixed shrink-0"}>
                   <span className={"material-symbols-outlined text-[20px]"}>
                     {"smart_toy"}
                   </span>
@@ -897,7 +897,7 @@ export default function IncidentsPage() {
                   </span>
                 </div>
               </div>
-              <div className={"flex items-center gap-space-sm self-end md:self-auto flex-shrink-0"}>
+              <div className={"flex items-center gap-space-sm self-end md:self-auto shrink-0"}>
                 <span className={"inline-flex items-center gap-1.5 font-mono-badge text-mono-badge text-tertiary"}>
                   <span className={"w-2 h-2 rounded-full bg-tertiary"}></span>
                   {"STREAM SYNCED"}
@@ -910,6 +910,6 @@ export default function IncidentsPage() {
           </div>
         </main>
       </div>
-    </ScreenNav>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ScreenNav } from "@/components/ScreenNav";
+import { Link } from "@tanstack/react-router";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -27,9 +27,9 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <ScreenNav>
+    <div className="min-h-screen bg-background text-on-background">
       <header className={"fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest/75 backdrop-blur-xl border-b border-surface-container-high landing-nav"}>
-        <div className={"h-16 max-w-[1200px] mx-auto px-space-md lg:px-space-xl flex items-center justify-between gap-space-md"}>
+        <div className={"h-16 max-w-max-content-width mx-auto px-space-md lg:px-space-xl flex items-center justify-between gap-space-md"}>
           <div className={"flex items-center gap-space-sm"}>
             <img alt={"IncidentIQ Logo"} className={"h-8 w-auto object-contain"} src={"/logo.svg"} />
             <span className={"font-headline-sm text-headline-sm text-on-surface tracking-tight font-semibold"}>
@@ -37,15 +37,15 @@ export default function LandingPage() {
             </span>
           </div>
           <nav className={"hidden lg:flex items-center gap-space-lg"} data-active-classes={"text-primary font-medium"} aria-label={"Primary navigation"}>
-            <a aria-current={"page"} className={"transition-colors text-primary font-medium"} data-path={"home"} href={"#"}>
+            <Link aria-current={"page"} className={"transition-colors text-primary font-medium"} to={"/"}>
               {"Product"}
-            </a>
-            <a className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} data-path={"integrations"} href={"#"}>
+            </Link>
+            <Link className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} to={"/integrations"}>
               {"Integrations"}
-            </a>
-            <a className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} data-path={"documentation"} href={"#"}>
+            </Link>
+            <Link className={"font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"} to={"/"}>
               {"Docs"}
-            </a>
+            </Link>
           </nav>
           <div className={"flex items-center gap-space-sm"}>
             <div className={"hidden sm:flex items-center gap-space-xxs bg-surface-container-low px-space-xs py-1 rounded-full border border-surface-container-high"}>
@@ -54,12 +54,12 @@ export default function LandingPage() {
                 {"All systems operational"}
               </span>
             </div>
-            <a className={"hidden md:inline-flex items-center justify-center px-space-sm py-2 rounded-xl border border-surface-container-high font-body-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors"} data-path={"login"} href={"#"}>
+            <Link className={"hidden md:inline-flex items-center justify-center px-space-sm py-2 rounded-xl border border-surface-container-high font-body-sm text-body-sm text-on-surface hover:bg-surface-container-low transition-colors"} to={"/login"}>
               {"Sign in"}
-            </a>
-            <a className={"inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold hover:bg-inverse-primary hover:text-on-primary-container transition-colors"} data-path={"signup"} href={"#"}>
+            </Link>
+            <Link className={"inline-flex items-center justify-center px-space-md py-2 rounded-xl bg-primary-container text-on-primary-container font-body-sm text-body-sm font-semibold hover:bg-inverse-primary hover:text-on-primary-container transition-colors"} to={"/signup"}>
               {"Start free"}
-            </a>
+            </Link>
           </div>
         </div>
       </header>
@@ -67,8 +67,8 @@ export default function LandingPage() {
         <div className={"flex flex-col w-full"}>
           <div className={"relative w-full overflow-hidden landing-hero"}>
             <div className={"absolute inset-0 pointer-events-none landing-grid"}></div>
-            <div className={"absolute top-0 left-1/2 -translate-x-1/2 w-[680px] h-[380px] bg-primary-container/20 blur-[130px] rounded-full pointer-events-none -z-10 landing-glow"}></div>
-            <section className={"relative max-w-[1200px] mx-auto px-space-md lg:px-space-xl pt-space-3xl pb-space-2xl text-center flex flex-col items-center justify-center min-h-[calc(100svh-4rem)]"}>
+            <div className={"absolute top-0 left-1/2 -translate-x-1/2 w-170 h-95 bg-primary-container/20 blur-[130px] rounded-full pointer-events-none -z-10 landing-glow"}></div>
+            <section className={"relative max-w-max-content-width mx-auto px-space-md lg:px-space-xl pt-space-3xl pb-space-2xl text-center flex flex-col items-center justify-center min-h-[calc(100svh-4rem)]"}>
               <div className={"landing-reveal inline-flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1.5 rounded-full border border-surface-container-high mb-space-lg shadow-sm"}>
                 <span className={"w-2 h-2 rounded-full bg-emerald-400 animate-pulse"}></span>
                 <span className={"font-mono-badge text-mono-badge uppercase text-on-surface-variant tracking-wider"}>
@@ -81,18 +81,18 @@ export default function LandingPage() {
                   {"Fix the incident."}
                 </span>
               </h1>
-              <p className={"landing-reveal landing-reveal-delay-2 font-body-lg text-body-lg text-on-surface-variant max-w-[680px] mx-auto mb-space-xl"}>
+              <p className={"landing-reveal landing-reveal-delay-2 font-body-lg text-body-lg text-on-surface-variant max-w-170 mx-auto mb-space-xl"}>
                 {"IncidentIQ connects alerts, logs, and deploys in real time, then gives your team one ranked answer backed by evidence."}
               </p>
               <div className={"landing-reveal landing-reveal-delay-3 flex flex-col sm:flex-row items-center justify-center gap-space-md w-full max-w-md mb-space-lg"}>
-                <a className={"group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-container text-on-primary-container font-body-base font-semibold hover:bg-inverse-primary transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-container/25"} href={"#"}>
+                <Link className={"group w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary-container text-on-primary-container font-body-base font-semibold hover:bg-inverse-primary transition-all hover:-translate-y-0.5 shadow-lg shadow-primary-container/25"} to={"/signup"}>
                   {"Start free"}
                   <span className={"material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-0.5"}>{"arrow_forward"}</span>
-                </a>
-                <a className={"w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-surface-container-high bg-surface-container-low/50 text-on-surface font-body-base font-semibold hover:border-tertiary transition-all hover:-translate-y-0.5"} href={"#"}>
+                </Link>
+                <Link className={"w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-surface-container-high bg-surface-container-low/50 text-on-surface font-body-base font-semibold hover:border-tertiary transition-all hover:-translate-y-0.5"} to={"/incidents"}>
                   <span className={"material-symbols-outlined text-[18px] text-tertiary"}>{"play_circle"}</span>
                   {"View live demo"}
-                </a>
+                </Link>
               </div>
               <p className={"landing-reveal landing-reveal-delay-4 font-mono-code text-mono-code text-outline flex items-center justify-center gap-space-xs flex-wrap pt-space-xs"}>
                 <span className={""}>
@@ -113,7 +113,7 @@ export default function LandingPage() {
               </p>
             </section>
           </div>
-          <section className={"max-w-[1200px] mx-auto px-space-md lg:px-space-xl pt-space-xl pb-space-3xl w-full landing-preview-wrap landing-scroll-reveal"}>
+          <section className={"max-w-max-content-width mx-auto px-space-md lg:px-space-xl pt-space-xl pb-space-3xl w-full landing-preview-wrap landing-scroll-reveal"}>
             <div className={"w-full rounded-2xl bg-surface-container-low border border-surface-container-high overflow-hidden shadow-2xl landing-preview"}>
               <div className={"h-12 bg-surface-container-lowest px-space-lg flex items-center justify-between border-b border-surface-container-high"}>
                 <div className={"flex items-center gap-2"}>
@@ -300,7 +300,7 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
-          <section className={"max-w-[1200px] mx-auto px-space-md lg:px-space-xl py-space-3xl w-full landing-scroll-reveal"}>
+          <section className={"max-w-max-content-width mx-auto px-space-md lg:px-space-xl py-space-3xl w-full landing-scroll-reveal"}>
             <div className={"flex items-center justify-center mb-space-2xl"}>
               <div className={"inline-flex items-center p-1.5 rounded-full bg-surface-container-low border border-surface-container-high gap-1.5"}>
                 <button className={"px-6 py-2.5 rounded-full bg-primary-container text-on-primary-container border border-primary/50 font-body-sm font-semibold shadow-md shadow-primary-container/20"}>
@@ -389,7 +389,7 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
-          <section className={"max-w-[1200px] mx-auto px-space-md lg:px-space-xl py-space-3xl w-full landing-scroll-reveal"}>
+          <section className={"max-w-max-content-width mx-auto px-space-md lg:px-space-xl py-space-3xl w-full landing-scroll-reveal"}>
             <div className={"w-full rounded-2xl bg-surface-container-low border border-surface-container-high p-space-xl lg:p-space-2xl text-center flex flex-col items-center landing-metric-card"}>
               <span className={"font-mono-badge text-mono-badge text-on-surface-variant uppercase tracking-widest mb-space-sm"}>
                 {"ANALYSIS COMPLETES IN"}
@@ -416,7 +416,7 @@ export default function LandingPage() {
               </div>
             </div>
           </section>
-          <section className={"max-w-[1200px] mx-auto px-space-md lg:px-space-xl py-space-3xl w-full landing-scroll-reveal"}>
+          <section className={"max-w-max-content-width mx-auto px-space-md lg:px-space-xl py-space-3xl w-full landing-scroll-reveal"}>
             <div className={"text-center max-w-xl mx-auto mb-space-2xl"}>
               <h2 className={"font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight mb-space-sm"}>
                 {"From outage alert to root cause"}
@@ -503,7 +503,7 @@ export default function LandingPage() {
         </div>
       </main>
       <footer className={"w-full bg-surface-container-lowest border-t border-surface-container-high"}>
-        <div className={"max-w-[1200px] mx-auto px-space-md lg:px-space-xl pt-space-2xl pb-space-xl"}>
+        <div className={"max-w-max-content-width mx-auto px-space-md lg:px-space-xl pt-space-2xl pb-space-xl"}>
           <div className={"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-2xl"}>
             <div className={"lg:col-span-2 space-y-space-sm"}>
               <div className={"flex items-center gap-space-sm"}>
@@ -522,29 +522,29 @@ export default function LandingPage() {
               </h4>
               <ul className={"space-y-space-xs font-body-sm text-body-sm"}>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"root-cause-engine"} href={"#"} className={""}>
+                  <Link to={"/"} className={""}>
                     {"Root Cause Engine"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"deploy-correlator"} href={"#"} className={""}>
+                  <Link to={"/"} className={""}>
                     {"Deploy Correlator"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"live-playbooks"} href={"#"} className={""}>
+                  <Link to={"/"} className={""}>
                     {"Live Playbooks"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"supported-clouds"} href={"#"} className={""}>
+                  <Link to={"/"} className={""}>
                     {"Supported Clouds"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"security"} href={"#"} className={""}>
+                  <Link to={"/"} className={""}>
                     {"Security"}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -554,29 +554,29 @@ export default function LandingPage() {
               </h4>
               <ul className={"space-y-space-xs font-body-sm text-body-sm"}>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-google-cloud"} href={"#"} className={""}>
+                  <Link to={"/integrations"} className={""}>
                     {"Google Cloud"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-kubernetes"} href={"#"} className={""}>
+                  <Link to={"/integrations"} className={""}>
                     {"Kubernetes"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-datadog"} href={"#"} className={""}>
+                  <Link to={"/integrations"} className={""}>
                     {"Datadog"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-pagerduty"} href={"#"} className={""}>
+                  <Link to={"/integrations"} className={""}>
                     {"PagerDuty"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"integrations-slack"} href={"#"} className={""}>
+                  <Link to={"/integrations"} className={""}>
                     {"Slack"}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -586,29 +586,29 @@ export default function LandingPage() {
               </h4>
               <ul className={"space-y-space-xs font-body-sm text-body-sm"}>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"documentation"} href={"#"} className={""}>
+                  <Link to={"/"} className={""}>
                     {"Documentation"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"incident-library"} href={"#"} className={""}>
+                  <Link to={"/incidents"} className={""}>
                     {"Incident Library"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"status"} href={"#"} className={""}>
+                  <Link to={"/system-states"} className={""}>
                     {"Status"}
-                  </a>
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"soc-2-type-ii"} href={"#"} className={""}>
-                    {"SOC 2 Type II"}
-                  </a>
+                  <Link to={"/system-states"} className={""}>
+                    {"Security overview"}
+                  </Link>
                 </li>
                 <li className={"text-on-surface-variant hover:text-on-surface transition-colors"}>
-                  <a data-path={"changelog"} href={"#"} className={""}>
+                  <Link to={"/"} className={""}>
                     {"Changelog"}
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -626,6 +626,6 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
-    </ScreenNav>
+    </div>
   );
 }

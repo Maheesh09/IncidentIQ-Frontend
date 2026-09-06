@@ -1,8 +1,10 @@
-import { ScreenNav } from "@/components/ScreenNav";
+import { Link } from "@tanstack/react-router";
 
-export default function IncidentDetailPage() {
+export default function IncidentDetailPage({ incidentId = "INC-8492" }) {
+  const displayIncidentId = incidentId.toUpperCase();
+
   return (
-    <ScreenNav>
+    <div className="min-h-screen bg-background text-on-background">
       <aside className={"fixed left-0 top-0 h-screen w-60 bg-surface-dim z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.4)]"}>
         <div className={"flex flex-col"}>
           <div className={"h-16 px-space-lg flex items-center gap-space-sm"}>
@@ -13,38 +15,38 @@ export default function IncidentDetailPage() {
           </div>
           <div className={"px-space-md py-space-sm"}>
             <nav className={"flex flex-col gap-space-xxs"} data-active-classes={"bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"}>
-              <a aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} data-path={"incidents"} href={"#"}>
+              <Link aria-current={"page"} className={"flex items-center gap-space-sm px-space-md py-space-sm rounded transition-colors bg-surface-container-low text-on-surface font-semibold relative before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary-container before:rounded-r"} to={"/incidents"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"emergency_home"}
                 </span>
                 <span>
                   {"Incidents"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"integrations"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/integrations"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"hub"}
                 </span>
                 <span>
                   {"Integrations"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"api-keys"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/api-keys"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"key"}
                 </span>
                 <span>
                   {"API Keys"}
                 </span>
-              </a>
-              <a className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} data-path={"settings"} href={"#"}>
+              </Link>
+              <Link className={"flex items-center gap-space-sm px-space-md py-space-sm rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-base text-body-base"} to={"/system-states"}>
                 <span className={"material-symbols-outlined text-[20px]"}>
                   {"settings"}
                 </span>
                 <span>
                   {"Settings"}
                 </span>
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
@@ -66,7 +68,7 @@ export default function IncidentDetailPage() {
               <span className={"font-body-sm text-body-sm font-semibold text-on-surface truncate"}>
                 {"Elena Rostova"}
               </span>
-              <span className={"font-body-sm text-[11px] leading-[14px] text-on-surface-variant truncate"}>
+              <span className={"font-body-sm text-[11px] leading-3.5 text-on-surface-variant truncate"}>
                 {"Global Payments Infra"}
               </span>
             </div>
@@ -116,22 +118,22 @@ export default function IncidentDetailPage() {
           </div>
         </header>
         <main className={"relative pt-16 bg-surface-container-lowest min-h-screen px-space-xl py-space-xl"}>
-          <div className={"flex flex-col w-full max-w-[1360px] mx-auto pb-space-3xl gap-space-xl"}>
+          <div className={"flex flex-col w-full max-w-340 mx-auto pb-space-3xl gap-space-xl"}>
             <div className={"flex flex-wrap items-center justify-between gap-space-md pt-space-xs"}>
               <div className={"flex items-center gap-space-xs font-mono-base text-mono-base text-on-surface-variant"}>
-                <a className={"hover:text-on-surface transition-colors flex items-center gap-1"} href={"#"}>
+                <Link className={"hover:text-on-surface transition-colors flex items-center gap-1"} to={"/incidents"}>
                   <span className={"material-symbols-outlined text-[16px]"}>
                     {"folder_open"}
                   </span>
                   <span>
                     {"Incidents"}
                   </span>
-                </a>
+                </Link>
                 <span className={"text-outline-variant"}>
                   {"/"}
                 </span>
                 <span className={"text-primary font-bold"}>
-                  {"INC-8492"}
+                  {displayIncidentId}
                 </span>
                 <span className={"text-outline-variant"}>
                   {"/"}
@@ -148,12 +150,12 @@ export default function IncidentDetailPage() {
               </div>
             </div>
             <section className={"relative bg-surface-container-low rounded-xl p-space-xl shadow-xl overflow-hidden"}>
-              <div className={"absolute -top-24 left-1/4 w-[600px] h-[300px] bg-primary-container/15 rounded-full blur-3xl pointer-events-none -z-0"}></div>
+              <div className={"absolute -top-24 left-1/4 w-150 h-75 bg-primary-container/15 rounded-full blur-3xl pointer-events-none z-0"}></div>
               <div className={"relative z-10 flex flex-col gap-space-md"}>
                 <div className={"flex flex-wrap items-center justify-between gap-space-md"}>
                   <div className={"flex flex-wrap items-center gap-space-xs"}>
                     <span className={"px-space-sm py-1 rounded bg-surface-container-highest font-mono-base text-mono-base font-bold text-on-surface tracking-tight"}>
-                      {"INC-8492"}
+                      {displayIncidentId}
                     </span>
                     <span className={"flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-container/20 text-secondary font-mono-badge text-mono-badge font-semibold uppercase"}>
                       <span className={"w-1.5 h-1.5 rounded-full bg-secondary"}></span>
@@ -255,7 +257,7 @@ export default function IncidentDetailPage() {
               </div>
               <div className={"relative grid grid-cols-12 items-center gap-2 py-2"}>
                 <div className={"col-span-3 flex items-center gap-2 bg-surface-container-high/70 p-space-sm rounded-lg shadow-inner"}>
-                  <span className={"w-2.5 h-2.5 rounded-full bg-tertiary flex-shrink-0 shadow-[0_0_8px_rgba(174,198,255,0.7)]"}></span>
+                  <span className={"w-2.5 h-2.5 rounded-full bg-tertiary shrink-0 shadow-[0_0_8px_rgba(174,198,255,0.7)]"}></span>
                   <div className={"flex flex-col min-w-0"}>
                     <span className={"font-body-sm text-body-sm font-semibold text-on-surface truncate"}>
                       {"1. Triage"}
@@ -266,39 +268,39 @@ export default function IncidentDetailPage() {
                   </div>
                 </div>
                 <div className={"col-span-1 flex flex-col items-center justify-center relative h-20"}>
-                  <div className={"w-full h-[2px] bg-primary-container"}></div>
-                  <div className={"absolute left-1/2 top-3 bottom-3 w-[2px] bg-primary-container -translate-x-1/2"}></div>
+                  <div className={"w-full h-0.5 bg-primary-container"}></div>
+                  <div className={"absolute left-1/2 top-3 bottom-3 w-0.5 bg-primary-container -translate-x-1/2"}></div>
                 </div>
                 <div className={"col-span-4 flex flex-col gap-2"}>
                   <div className={"flex items-center gap-2 bg-surface-container-high/90 p-space-xs px-space-sm rounded-lg shadow-inner"}>
-                    <span className={"w-2 h-2 rounded-full bg-tertiary flex-shrink-0"}></span>
+                    <span className={"w-2 h-2 rounded-full bg-tertiary shrink-0"}></span>
                     <div className={"flex items-center justify-between w-full min-w-0"}>
                       <span className={"font-body-sm text-[12px] font-semibold text-on-surface truncate"}>
                         {"2. Log analysis"}
                       </span>
-                      <span className={"font-mono-badge text-[11px] text-tertiary font-mono-code"}>
+                      <span className={"font-mono-badge text-[11px] text-tertiary"}>
                         {"14.6s"}
                       </span>
                     </div>
                   </div>
                   <div className={"flex items-center gap-2 bg-surface-container-high/90 p-space-xs px-space-sm rounded-lg shadow-inner"}>
-                    <span className={"w-2 h-2 rounded-full bg-tertiary flex-shrink-0"}></span>
+                    <span className={"w-2 h-2 rounded-full bg-tertiary shrink-0"}></span>
                     <div className={"flex items-center justify-between w-full min-w-0"}>
                       <span className={"font-body-sm text-[12px] font-semibold text-on-surface truncate"}>
                         {"3. Deploy correlation"}
                       </span>
-                      <span className={"font-mono-badge text-[11px] text-tertiary font-mono-code"}>
+                      <span className={"font-mono-badge text-[11px] text-tertiary"}>
                         {"18.2s"}
                       </span>
                     </div>
                   </div>
                 </div>
                 <div className={"col-span-1 flex flex-col items-center justify-center relative h-20"}>
-                  <div className={"absolute right-1/2 top-3 bottom-3 w-[2px] bg-primary-container translate-x-1/2"}></div>
-                  <div className={"w-full h-[2px] bg-primary-container"}></div>
+                  <div className={"absolute right-1/2 top-3 bottom-3 w-0.5 bg-primary-container translate-x-1/2"}></div>
+                  <div className={"w-full h-0.5 bg-primary-container"}></div>
                 </div>
                 <div className={"col-span-2 flex items-center gap-2 bg-surface-container-high/70 p-space-sm rounded-lg shadow-inner"}>
-                  <span className={"w-2.5 h-2.5 rounded-full bg-tertiary flex-shrink-0 shadow-[0_0_8px_rgba(174,198,255,0.7)]"}></span>
+                  <span className={"w-2.5 h-2.5 rounded-full bg-tertiary shrink-0 shadow-[0_0_8px_rgba(174,198,255,0.7)]"}></span>
                   <div className={"flex flex-col min-w-0"}>
                     <span className={"font-body-sm text-body-sm font-semibold text-on-surface truncate"}>
                       {"4. Synthesis"}
@@ -367,7 +369,7 @@ export default function IncidentDetailPage() {
                         </span>
                       </div>
                       <div className={"w-32 h-3 bg-surface-container-highest rounded-full overflow-hidden p-0.5"}>
-                        <div className={"h-full bg-gradient-to-r from-primary-container to-secondary rounded-full"} style={{"width":"94.8%"}}></div>
+                        <div className={"h-full bg-linear-to-r from-primary-container to-secondary rounded-full"} style={{"width":"94.8%"}}></div>
                       </div>
                     </div>
                   </div>
@@ -515,7 +517,7 @@ export default function IncidentDetailPage() {
                         {"Redis replica memory fragmentation spike causing session lock timeouts."}
                       </span>
                     </div>
-                    <div className={"flex items-center gap-space-md flex-shrink-0"}>
+                    <div className={"flex items-center gap-space-md shrink-0"}>
                       <div className={"flex items-center gap-2"}>
                         <span className={"font-mono-base text-mono-base text-outline font-semibold"}>
                           {"38.2%"}
@@ -540,7 +542,7 @@ export default function IncidentDetailPage() {
                         {"Upstream Cloudflare edge routing flap during BGP re-convergence in us-east1."}
                       </span>
                     </div>
-                    <div className={"flex items-center gap-space-md flex-shrink-0"}>
+                    <div className={"flex items-center gap-space-md shrink-0"}>
                       <div className={"flex items-center gap-2"}>
                         <span className={"font-mono-base text-mono-base text-outline font-semibold"}>
                           {"12.4%"}
@@ -572,7 +574,7 @@ export default function IncidentDetailPage() {
                     </div>
                   </div>
                   <div className={"w-full h-32 bg-surface-container-lowest rounded-lg p-space-sm flex flex-col justify-end"}>
-                    <svg className={"w-full h-24 overflow-visible"} preserveaspectratio={"none"} viewbox={"0 0 600 100"}>
+                    <svg className={"w-full h-24 overflow-visible"} preserveAspectRatio={"none"} viewBox={"0 0 600 100"}>
                       <line stroke={"#33343c"} strokeDasharray={"4,4"} strokeWidth={"1"} x1={"0"} x2={"600"} y1={"20"} y2={"20"}></line>
                       <line stroke={"#33343c"} strokeDasharray={"4,4"} strokeWidth={"1"} x1={"0"} x2={"600"} y1={"60"} y2={"60"}></line>
                       <path d={"M0,75 L80,74 L160,76 L240,73 L320,75 L400,74 L480,75 L600,74"} fill={"none"} stroke={"#aec6ff"} strokeWidth={"2"}></path>
@@ -663,14 +665,14 @@ export default function IncidentDetailPage() {
                           {"Trigger Automated Rollback"}
                         </span>
                       </button>
-                      <a className={"w-full flex items-center justify-center gap-1.5 py-2 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-medium transition-colors"} href={"#"}>
+                      <Link className={"w-full flex items-center justify-center gap-1.5 py-2 rounded bg-surface-container-high hover:bg-surface-variant text-on-surface font-body-sm text-body-sm font-medium transition-colors"} to={"/incidents"}>
                         <span className={"material-symbols-outlined text-[16px]"}>
                           {"open_in_new"}
                         </span>
                         <span>
                           {"View PR in GitHub"}
                         </span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </section>
@@ -688,7 +690,7 @@ export default function IncidentDetailPage() {
                       {"3 systems"}
                     </span>
                   </div>
-                  <div className={"relative pl-6 flex flex-col gap-space-md before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-[2px] before:bg-surface-container-highest"}>
+                  <div className={"relative pl-6 flex flex-col gap-space-md before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-highest"}>
                     <div className={"relative flex flex-col gap-0.5"}>
                       <span className={"absolute -left-6 top-1.5 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-surface-container-low"}></span>
                       <div className={"flex items-center gap-space-xs"}>
@@ -838,6 +840,6 @@ export default function IncidentDetailPage() {
           </div>
         </main>
       </div>
-    </ScreenNav>
+    </div>
   );
 }
