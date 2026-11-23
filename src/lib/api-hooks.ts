@@ -5,7 +5,7 @@ import {
   type UseQueryOptions,
 } from "@tanstack/react-query";
 
-import { api, type ApiRequestOptions } from "./api";
+import { api, type ApiRequestBody, type ApiRequestOptions } from "./api";
 
 type ApiQueryOptions<TData> = Omit<UseQueryOptions<TData>, "queryKey" | "queryFn"> & {
   path: string;
@@ -13,7 +13,12 @@ type ApiQueryOptions<TData> = Omit<UseQueryOptions<TData>, "queryKey" | "queryFn
   request?: Omit<ApiRequestOptions, "method" | "body">;
 };
 
-export function useApiQuery<TData>({ path, queryKey, request, ...options }: ApiQueryOptions<TData>) {
+export function useApiQuery<TData>({
+  path,
+  queryKey,
+  request,
+  ...options
+}: ApiQueryOptions<TData>) {
   return useQuery({
     ...options,
     queryKey,
@@ -30,7 +35,7 @@ type ApiMutationOptions<TData, TVariables> = Omit<
   request?: Omit<ApiRequestOptions, "method" | "body">;
 };
 
-export function useApiMutation<TData, TVariables = unknown>({
+export function useApiMutation<TData, TVariables extends ApiRequestBody = ApiRequestBody>({
   path,
   method = "POST",
   request,

@@ -7,7 +7,10 @@ export const Route = createFileRoute("/incidents/$incidentId")({
       { title: "Incident Root Cause Analysis — IncidentIQ" },
       { name: "description", content: "Verified root cause analysis for a production incident." },
       { property: "og:title", content: "Incident Root Cause Analysis — IncidentIQ" },
-      { property: "og:description", content: "Verified root cause analysis for a production incident." },
+      {
+        property: "og:description",
+        content: "Verified root cause analysis for a production incident.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

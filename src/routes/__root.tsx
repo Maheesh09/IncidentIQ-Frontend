@@ -73,10 +73,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "IncidentIQ — Automated root cause analysis" },
-      { name: "description", content: "IncidentIQ correlates logs and deploys the moment an alert fires." },
+      {
+        name: "description",
+        content: "IncidentIQ correlates logs and deploys the moment an alert fires.",
+      },
       { name: "author", content: "IncidentIQ" },
       { property: "og:title", content: "IncidentIQ" },
-      { property: "og:description", content: "Automated root cause analysis for SRE and platform teams." },
+      {
+        property: "og:description",
+        content: "Automated root cause analysis for SRE and platform teams.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
