@@ -1,7 +1,11 @@
-export type AuthTokenProvider = () => string | null | undefined | Promise<string | null | undefined>;
+export type AuthTokenProvider = () =>
+  string | null | undefined | Promise<string | null | undefined>;
+
+/** A raw fetch body, or a plain object that is sent as JSON. */
+export type ApiRequestBody = BodyInit | object | null | undefined;
 
 export type ApiRequestOptions = Omit<RequestInit, "body" | "headers"> & {
-  body?: BodyInit | object | null;
+  body?: ApiRequestBody;
   headers?: HeadersInit;
   query?: Record<string, string | number | boolean | null | undefined>;
   skipAuth?: boolean;
@@ -16,11 +20,14 @@ export type ApiErrorBody = {
 
 export class ApiError extends Error {
   readonly status: number;
-  readonly code?: string;
-  readonly details?: unknown;
+  readonly code: string | undefined;
+  readonly details: unknown;
 
   constructor(status: number, body: ApiErrorBody | string | null) {
-    const message = typeof body === "string" ? body : body?.message ?? body?.error ?? `Request failed with status ${status}`;
+    const message =
+      typeof body === "string"
+        ? body
+        : (body?.message ?? body?.error ?? `Request failed with status ${status}`);
     super(message);
     this.name = "ApiError";
     this.status = status;
@@ -57,15 +64,24 @@ async function parseBody(response: Response): Promise<unknown> {
   return response.text();
 }
 
-export async function apiFetch<TResponse>(path: string, options: ApiRequestOptions = {}): Promise<TResponse> {
+export async function apiFetch<TResponse>(
+  path: string,
+  options: ApiRequestOptions = {},
+): Promise<TResponse> {
   const { body, headers, query, skipAuth, ...requestInit } = options;
   const requestHeaders = new Headers(headers);
-  let requestBody: BodyInit | undefined;
+  let requestBody: BodyInit | null = null;
 
   if (body !== null && body !== undefined) {
-    if (typeof body === "object" && !(body instanceof Blob) && !(body instanceof FormData) && !(body instanceof URLSearchParams)) {
+    if (
+      typeof body === "object" &&
+      !(body instanceof Blob) &&
+      !(body instanceof FormData) &&
+      !(body instanceof URLSearchParams)
+    ) {
       requestBody = JSON.stringify(body);
-      if (!requestHeaders.has("content-type")) requestHeaders.set("content-type", "application/json");
+      if (!requestHeaders.has("content-type"))
+        requestHeaders.set("content-type", "application/json");
     } else {
       requestBody = body as BodyInit;
     }
@@ -94,12 +110,21 @@ export const api = {
   fetch: apiFetch,
   get: <TResponse>(path: string, options?: Omit<ApiRequestOptions, "method" | "body">) =>
     apiFetch<TResponse>(path, { ...options, method: "GET" }),
-  post: <TResponse>(path: string, body?: unknown, options?: Omit<ApiRequestOptions, "method" | "body">) =>
-    apiFetch<TResponse>(path, { ...options, body, method: "POST" }),
-  put: <TResponse>(path: string, body?: unknown, options?: Omit<ApiRequestOptions, "method" | "body">) =>
-    apiFetch<TResponse>(path, { ...options, body, method: "PUT" }),
-  patch: <TResponse>(path: string, body?: unknown, options?: Omit<ApiRequestOptions, "method" | "body">) =>
-    apiFetch<TResponse>(path, { ...options, body, method: "PATCH" }),
+  post: <TResponse>(
+    path: string,
+    body?: ApiRequestBody,
+    options?: Omit<ApiRequestOptions, "method" | "body">,
+  ) => apiFetch<TResponse>(path, { ...options, body, method: "POST" }),
+  put: <TResponse>(
+    path: string,
+    body?: ApiRequestBody,
+    options?: Omit<ApiRequestOptions, "method" | "body">,
+  ) => apiFetch<TResponse>(path, { ...options, body, method: "PUT" }),
+  patch: <TResponse>(
+    path: string,
+    body?: ApiRequestBody,
+    options?: Omit<ApiRequestOptions, "method" | "body">,
+  ) => apiFetch<TResponse>(path, { ...options, body, method: "PATCH" }),
   delete: <TResponse>(path: string, options?: Omit<ApiRequestOptions, "method" | "body">) =>
     apiFetch<TResponse>(path, { ...options, method: "DELETE" }),
 };

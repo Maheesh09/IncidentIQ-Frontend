@@ -5,9 +5,15 @@ export const Route = createFileRoute("/system-states")({
   head: () => ({
     meta: [
       { title: "System States — IncidentIQ" },
-      { name: "description", content: "Empty, error, degraded and processing views across IncidentIQ dashboards." },
+      {
+        name: "description",
+        content: "Empty, error, degraded and processing views across IncidentIQ dashboards.",
+      },
       { property: "og:title", content: "System States — IncidentIQ" },
-      { property: "og:description", content: "Empty, error, degraded and processing views across IncidentIQ dashboards." },
+      {
+        property: "og:description",
+        content: "Empty, error, degraded and processing views across IncidentIQ dashboards.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

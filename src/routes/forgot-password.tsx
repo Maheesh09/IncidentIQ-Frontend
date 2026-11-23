@@ -5,9 +5,15 @@ export const Route = createFileRoute("/forgot-password")({
   head: () => ({
     meta: [
       { title: "Reset your password — IncidentIQ" },
-      { name: "description", content: "Cryptographic identity recovery for IncidentIQ accounts, fast and audit-trailed." },
+      {
+        name: "description",
+        content: "Cryptographic identity recovery for IncidentIQ accounts, fast and audit-trailed.",
+      },
       { property: "og:title", content: "Reset your password — IncidentIQ" },
-      { property: "og:description", content: "Cryptographic identity recovery for IncidentIQ accounts, fast and audit-trailed." },
+      {
+        property: "og:description",
+        content: "Cryptographic identity recovery for IncidentIQ accounts, fast and audit-trailed.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
